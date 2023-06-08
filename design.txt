@@ -19,7 +19,7 @@ class RideSlim:
 	event_time: datetime
 	distance: float
 	ride_id: int
-	city: str
+	location: str
 	seats: int
 	to_uni: bool
 
@@ -30,7 +30,7 @@ class Ride:
 	image: str
 	event_time: datetime
 	distance: float #  dynamic
-	city: str
+	location: str
 	seats: int
 	to_uni: bool
 	passengers: List[Profile]
@@ -44,7 +44,7 @@ class Profile:
 	score: float
 	name: str
 	education: str
-	city: str
+	location: str
 	bio: str
 	gender: str
 	image: str
