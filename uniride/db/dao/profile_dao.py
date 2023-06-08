@@ -14,7 +14,6 @@ class ProfileDAO:
     def __init__(self, session: AsyncSession = Depends(get_db_session)):
         self.session = session
 
-
     async def get_profile_model_by_id(
         self,
         id: int,

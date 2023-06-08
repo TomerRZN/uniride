@@ -12,6 +12,7 @@ class ProfileModelDTO(BaseModel):
     education: str
     bio: str
     gender: str
+    age: int
     image: str
     score: float
     class Config:

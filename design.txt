@@ -1,12 +1,9 @@
 
 Endpoints:
 
-GET /rides                           Tomer
-GET /rides/{id}                      Tomer
+GET /rides                           DONE
+GET /rides/{id}                      DONE
 POST /rides                          DONE
-GET /rides/{id}/pickups
-POST /rides/{id}/pickups
-PUT /rides/{id}/pickups
 GET /profiles/{id}                   Amit
 
 
