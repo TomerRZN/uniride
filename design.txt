@@ -12,29 +12,25 @@ GET /profiles/{id}
 
 Models:
 
-class Location:
-	latitude: float
-	longitude: float
-
 
 class RideSlim:
-	driver_id: uuid
+	driver_id: int
 	image: str
 	event_time: datetime
 	distance: float
-	ride_id: uuid
-	location: Location
+	ride_id: int
+	city: str
 	seats: int
 	to_uni: bool
 
 class Ride:
-	driver_id: uuid
+	ride_id: int
+	driver_id: int
 	name: str
 	image: str
 	event_time: datetime
 	distance: float #  dynamic
-	ride_id: uuid
-	location: Location
+	city: str
 	seats: int
 	to_uni: bool
 	passengers: List[Profile]
@@ -44,10 +40,9 @@ class Ride:
 
 
 class Profile:
-	profile_id: uuid
+	profile_id: int
 	score: float
 	name: str
-	interests: List[str]
 	education: str
 	city: str
 	bio: str
@@ -56,8 +51,8 @@ class Profile:
 
 
 class Pickup:
-	profile_id: uuid
+	profile_id: int
 	status: Enum
-	ride_id: uuid
+	ride_id: int
 	name: str
 	image: str
