@@ -1,0 +1,32 @@
+version: '3.9'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: ./deploy/Dockerfile
+      target: prod
+    image: uniride:${UNIRIDE_VERSION:-latest}
+    restart: always
+    env_file:
+    - .env
+    environment:
+      UNIRIDE_HOST: 0.0.0.0
+      UNIRIDE_DB_FILE: /db_data/db.sqlite3
+    volumes:
+    - uniride-db-data:/db_data/
+
+  migrator:
+    image: uniride:${UNIRIDE_VERSION:-latest}
+    restart: "no"
+    command: alembic upgrade head
+    environment:
+      UNIRIDE_DB_FILE: /db_data/db.sqlite3
+    volumes:
+    - uniride-db-data:/db_data/
+
+
+
+volumes:
+  uniride-db-data:
+    name: uniride-db-data
