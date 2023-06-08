@@ -37,7 +37,7 @@ class Ride:
 	location: Location
 	seats: int
 	to_uni: bool
-	passengers: List[ProfileSlim]
+	passengers: List[Profile]
 	price: float
 	description: str
 	request_status: Enum #  dynamic
