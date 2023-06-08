@@ -28,10 +28,7 @@ async def create_ride(
 
 
 @router.get("/ride/{id}", response_model=RideModelDTO)
-async def get_ride_by_id(
-    id: int,
-    ride_dao: RideDAO = Depends()
-) -> RideModel:
+async def get_ride_by_id(id: int, ride_dao: RideDAO = Depends()) -> RideModel:
     """
     Create a new ride.
 
@@ -45,3 +42,14 @@ async def get_ride_by_id(
 
     ride = enrich_ride(ride)
     return ride
+
+
+@router.get("/rides", response_model=list[RideModelDTO])
+async def get_all_rides(ride_dao: RideDAO = Depends()) -> list[RideModel]:
+    """
+    Create a new ride.
+
+    :param ride_dao: DAO for ride models.
+    :return: return ride object
+    """
+    return [enrich_ride(ride) for ride in await ride_dao.get_all_rides()]
