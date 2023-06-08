@@ -3,6 +3,7 @@ from fastapi.param_functions import Depends
 
 from uniride.db.dao.ride_dao import RideDAO
 from uniride.db.models.ride_model import RideModel
+from uniride.services.rides import enrich_ride
 from uniride.web.api.rides.schema import RideModelInputDTO
 from uniride.web.api.rides.schema import RideModelDTO
 from fastapi.exceptions import HTTPException
@@ -42,14 +43,5 @@ async def get_ride_by_id(
     if not ride:
         raise HTTPException(404)
 
-    # TODO: add passangers and also decrease seats
-    # TODO: add get_profile to get image and name of profile_id
-    ride.name = ''
-    ride.image = ''
-    ride.passengers = []
-
-    if ride.location == 'Herzliya':
-        ride.distance = 5.6
-    elif ride.location == 'Tel Aviv':
-        ride.distance = 0.8
+    ride = enrich_ride(ride)
     return ride
