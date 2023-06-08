@@ -14,6 +14,12 @@ class RideDAO:
     def __init__(self, session: AsyncSession = Depends(get_db_session)):
         self.session = session
 
+    async def get_all_rides(self):
+        rides = await self.session.execute(
+            select(RideModel),
+        )
+        return list(rides.scalars().fetchall())
+
     async def create_ride_model(self, **kwargs) -> None:
         """
         Add single ride to session.
