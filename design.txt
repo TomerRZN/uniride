@@ -1,16 +1,17 @@
 
 Endpoints:
 
-GET /rides
-GET /rides/{id}
-POST /rides
+GET /rides                           Tomer
+GET /rides/{id}                      Tomer
+POST /rides                          DONE
 GET /rides/{id}/pickups
 POST /rides/{id}/pickups
 PUT /rides/{id}/pickups
-GET /profiles/{id}
+GET /profiles/{id}                   Amit
 
 
 Models:
+
 
 
 class RideSlim:
