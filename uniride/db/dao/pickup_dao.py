@@ -27,3 +27,17 @@ class PickupDAO:
         query = select(PickupModel).where(PickupModel.ride_id == ride_id)
         pickups = await self.session.execute(query)
         return list(pickups.scalars().fetchall())
+
+    async def get_all_pickups_by_profile_id(
+            self,
+            profile_id: int,
+        ) -> list[PickupModel]:
+            """
+            Get specific dummy model.
+
+            :param profile_id: id of profile.
+            :return: pickup objects.
+            """
+            query = select(PickupModel).where(PickupModel.profile_id == profile_id)
+            pickups = await self.session.execute(query)
+            return list(pickups.scalars().fetchall())

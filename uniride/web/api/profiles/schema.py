@@ -15,6 +15,7 @@ class ProfileModelDTO(BaseModel):
     age: int
     image: str
     score: float
+    rides: list[int]
     class Config:
         orm_mode = True
 
