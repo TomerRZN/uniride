@@ -1,0 +1,89 @@
+
+
+
+Root /campus/{campus}
+
+
+rides:
+GET /rides?event_time,range,direction,location
+GET /rides/{id}
+POST /rides
+PUT /rides
+GET /rides/{id}/pickups
+POST /rides/{id}/pickups
+POST /rides/{id}/review
+
+profiles:
+GET /profiles/{id}
+GET /profiles/{id}/notifications
+
+
+
+class Location:
+	latitude: float
+	longitude: float
+
+
+class RideSlim:
+	driver_id: uuid
+	image: str
+	event_time: datetime
+	distance: float
+	ride_id: uuid
+	location: Location
+	seats: int
+	to_uni: bool
+
+class Ride:
+	driver_id: uuid
+	name: str
+	image: str
+	event_time: datetime
+	distance: float #  dynamic
+	ride_id: uuid
+	location: Location
+	seats: int
+	to_uni: bool
+	passengers: List[ProfileSlim]
+	price: float
+	description: str
+	request_status: Enum #  dynamic
+
+
+class Profile:
+	profile_id: uuid
+	score: Review
+	name: str
+	interests: List[str]
+	education: str
+	city: str
+	bio: str
+	gender: str
+	image: str
+
+
+class Notification:
+	message: str
+	ride_id: uuid
+
+
+
+class Pickup:
+	profile_id: uuid
+	status: Enum
+	ride_id: uuid
+	name: str
+	image: str
+
+
+class Review:
+	score: int
+	ride_id: int
+	profile_id: int
+
+
+
+
+reviews:
+	score: int
+	ride_id:
