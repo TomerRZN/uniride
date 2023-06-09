@@ -1,0 +1,56 @@
+
+Endpoints:
+
+GET /rides                           DONE
+GET /rides/{id}                      DONE
+POST /rides                          DONE
+GET /profiles/{id}                   Amit
+
+
+Models:
+
+
+
+class RideSlim:
+	driver_id: int
+	image: str
+	event_time: datetime
+	distance: float
+	ride_id: int
+	location: str
+	seats: int
+	to_uni: bool
+
+class Ride:
+	ride_id: int
+	driver_id: int
+	name: str
+	image: str
+	event_time: datetime
+	distance: float #  dynamic
+	location: str
+	seats: int
+	to_uni: bool
+	passengers: List[Profile]
+	price: float
+	description: str
+	request_status: Enum #  dynamic
+
+
+class Profile:
+	profile_id: int
+	score: float
+	name: str
+	education: str
+	location: str
+	bio: str
+	gender: str
+	image: str
+
+
+class Pickup:
+	profile_id: int
+	status: Enum
+	ride_id: int
+	name: str
+	image: str
