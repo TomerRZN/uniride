@@ -52,11 +52,11 @@ export default function Map() {
                 onPress={handlePress.bind(this, 2)}
             >
                 <Image
-                    className="rounded-full h-14 w-14 border-2 border-spacing-1 border-[#ffffff] "
                     source={{ uri: ride_list[1].image }}
+                    style={{ height: 50, width: 50, borderRadius: 100 }}
                 />
             </Marker>
-            {/* <Marker
+            <Marker
                 coordinate={{
                     latitude: 32.08129831603415,
                     longitude: 34.77223569138488,
@@ -64,10 +64,10 @@ export default function Map() {
                 onPress={handlePress.bind(this, 3)}
             >
                 <Image
-                    className="rounded-full h-14 w-14 border-spacing-1 border-[#ffffff] border-2"
+                    style={{ height: 50, width: 50, borderRadius: 100 }}
                     source={{ uri: ride_list[2].image }}
                 />
-            </Marker> */}
+            </Marker>
         </MapView>
     );
 }
