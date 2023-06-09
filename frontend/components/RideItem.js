@@ -33,7 +33,7 @@ export default function RideItem({ item }) {
                     </View>
 
                     <View className="flex-col">
-                        <Text className="text-lg font-bold">
+                        <Text className="text-lg tracking-tight">
                             {location}{" "}
                             <Text className="font-normal text-sm">({distance})</Text>
                         </Text>

@@ -51,7 +51,7 @@ export default function SearchNav() {
                         {atUniversity ? (
                             <TextInput
                                 editable={atUniversity}
-                                placeholder="Search destination..."
+                                placeholder="Search source..."
                                 onChangeText={handleSearch}
                                 value={destination}
                             />
@@ -77,7 +77,7 @@ export default function SearchNav() {
                         {!atUniversity ? (
                             <TextInput
                                 editable={!atUniversity}
-                                placeholder="search destination..."
+                                placeholder="Search Destination..."
                                 onChangeText={handleSearch}
                                 value={destination}
                             />

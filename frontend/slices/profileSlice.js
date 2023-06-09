@@ -11,7 +11,7 @@ const initialState = {
         seats: "2",
         image: "https://randomuser.me/api/portraits/men/18.jpg",
         passengers: ["4", "1", "5"], // list ids
-        history_rides_id: ["1", "3", "2"],
+        history_rides_id: ["6", "5", "4"],
         to_uni: false,
         price: "4.70",
         description: "",

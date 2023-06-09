@@ -6,9 +6,15 @@ import {
     HomeIcon as HomeIconOutLined,
     UserIcon as UserIconOutLined,
     PlusCircleIcon as PlusCircleIconOutLined,
+    MapIcon as MapIconOutLined,
 } from "react-native-heroicons/outline";
 
-import { HomeIcon, UserIcon, PlusCircleIcon } from "react-native-heroicons/solid";
+import {
+    HomeIcon,
+    UserIcon,
+    PlusCircleIcon,
+    MapIcon,
+} from "react-native-heroicons/solid";
 
 // Screens
 import HomeScreen from "./screens/HomeScreen";
@@ -16,6 +22,7 @@ import HomeStackScreen from "./HomeStackScreen";
 
 import ProfileScreen from "./screens/ProfileScreen";
 import AddRideScreen from "./screens/AddRideScreen";
+import MapScreen from "./screens/MapScreen";
 
 //Screen names
 const homeName = "Home";
@@ -41,6 +48,9 @@ function MainContainer() {
                         } else if (rn === "addRideTab") {
                             if (focused) return <PlusCircleIcon color={icon_color} />;
                             else return <PlusCircleIconOutLined color={icon_color} />;
+                        } else if (rn === "mapTab") {
+                            if (focused) return <MapIcon color={icon_color} />;
+                            else return <MapIconOutLined color={icon_color} />;
                         }
                     },
                     tabBarActiveTintColor: "#00CCBB",
@@ -59,6 +69,7 @@ function MainContainer() {
                 })}
             >
                 <Tab.Screen name={"Home"} component={HomeStackScreen} />
+                <Tab.Screen name={"mapTab"} component={MapScreen} />
                 <Tab.Screen name={"addRideTab"} component={AddRideScreen} />
                 <Tab.Screen name={"profileTab"} component={ProfileScreen} />
             </Tab.Navigator>

@@ -1,23 +1,19 @@
 import { useNavigation } from "@react-navigation/native";
-import { useLayoutEffect } from "react";
+import { useEffect, useLayoutEffect } from "react";
 import { SafeAreaView, Text, View, Image, TextInput, ScrollView } from "react-native";
-import {
-    MapPinIcon,
-    MagnifyingGlassIcon,
-    ArrowsUpDownIcon,
-} from "react-native-heroicons/outline";
 
-import OptionsSlider from "../../components/OptionsSlider.js";
-import { selectOrigin } from "../../slices/navSlice.js";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import Map from "../../components/Map.js";
 import RideList from "../../components/RideList.js";
 import FilterBox from "../../components/FilterBox.js";
 import SearchNav from "../../components/SearchNav.js";
-
+import { resetFilteredData } from "../../slices/rideListSlice";
+import { selectFilteredRideList } from "../../slices/rideListSlice";
 function HomeScreen(props) {
+    const dispatch = useDispatch();
     const navigation = useNavigation();
-    const origin = useSelector(selectOrigin);
+    const ride_list = useSelector(selectFilteredRideList);
+
     useLayoutEffect(() => {
         navigation.setOptions({
             //   headerTitle: "Student Carpool",
@@ -25,13 +21,17 @@ function HomeScreen(props) {
         });
     }, []);
 
+    // useEffect(() => {
+    //     dispatch(resetFilteredData());
+    // }, [ride_list]);
+
     return (
         <SafeAreaView className="flex-col pt-10 bg-white p-3">
             {/* Header */}
             <View className="flex-row justify-between gap-2 pb-3 mx-2">
                 <View className="flex-col">
-                    <Text className="text-xl font-light">UniRide</Text>
-                    <Text className="font-bold text-2xl">Choose a ride</Text>
+                    <Text className="text-xl font-light tracking-widest">UniRide</Text>
+                    <Text className="font-bold text-2xl up">Choose a ride</Text>
                 </View>
             </View>
 

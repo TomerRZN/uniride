@@ -4,6 +4,7 @@ import { useNavigation } from "@react-navigation/native";
 import { useLayoutEffect } from "react";
 import HomeScreen from "./screens/HomeScreen";
 import RideScreen from "./screens/RideScreen";
+import MapScreen from "./screens/MapScreen";
 
 const HomeStack = createStackNavigator();
 function HomeStackScreen() {
